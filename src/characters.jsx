@@ -1,19 +1,21 @@
 import React from 'react';
-import Character from "./character";
+import CharacterTile from "./characterTile";
+import styles from './App.module.css'
 
 function Characters({data}) {
 
     return (
 
-        <div>
-            {data.map((character) => <Character key = {character.id}
-                                                name={character.name}
-                                                gender={character.gender}
-                                                image={character.image}
-                                                type={character.type}
-                                                species={character.species}
-                                                status={character.status}/>) }
-
+        <div className={styles.flexContainer}>
+            {data.map((character) => <CharacterTile key={character.id}
+                                                    name={character.name}
+                                                    gender={character.gender}
+                                                    image={character.image}
+                                                    type={character.type}
+                                                    species={character.species}
+                                                    status={character.status}
+                                                    location={character.location.name}
+                                                    locationURL={character.location.url}/>)}
         </div>
     );
 
