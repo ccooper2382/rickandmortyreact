@@ -15,7 +15,7 @@ function Characters({data}) {
                                                     species={character.species}
                                                     status={character.status}
                                                     location={character.location.name}
-                                                    locationURL={character.location.url}/>)}
+                                                    origin={character.origin.name}/>)}
         </div>
     );
 

@@ -1,27 +1,17 @@
 import React from 'react';
 import styles from './App.module.css'
+import Title from "./title";
+import Location from "./location";
 
-function CharacterTile({name, status, species, type, gender, image, location, locationURL}) {
+function CharacterTile({name, status, species, type, gender, image, location, origin}) {
     return (
 
         <section className={styles.flexItem}>
-            <div>
-                <img className={styles.image} src={image} alt={name}></img>
-            </div>
-            <div>
-                <h2>{name}</h2>
-                <span>{status} - {species}</span>
-            </div>
-            <div>
-                <span>{type}</span>
-                <span>{gender}</span>
-            </div>
-            <div>
-                <span>Last Known Location</span>
-                <a href={locationURL}>{location}</a>
+         <Title name={name} species={species} status={status} image={image}/>
+         <Location location={location} origin={origin}/>
 
-            </div>
         </section>
+
     );
 }
 
