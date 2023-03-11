@@ -4,6 +4,8 @@ import styles from './App.module.css'
 
 function Characters({data}) {
 
+    if (data === undefined) return <div>this is dumb</div>
+
     return (
 
         <div className={styles.flexContainer}>
