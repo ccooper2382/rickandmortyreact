@@ -2,8 +2,8 @@ import React from 'react';
 
 function Pagination({current, max, onNext, onPrev}) {
 
-    const prevButton = current = 1 ?  <button disabled={true}>Prev</button> : <button onClick={onPrev}>Prev</button>
-    const nextButton = current >= max ?  <button disabled={true}>Next</button> : <button onClick={onNext}>Next</button>
+    const prevButton = (current === 1) ?  <button disabled={true}>Prev</button> : <button onClick={onPrev}>Prev</button>
+    const nextButton = (current >= max) ?  <button disabled={true}>Next</button> : <button onClick={onNext}>Next</button>
 
 
     return (
