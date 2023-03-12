@@ -1,6 +1,6 @@
 import React from 'react';
 import CharacterTile from "./characterTile";
-import styles from './App.module.css'
+import styles from '../App.module.css'
 
 function Characters({data}) {
 
@@ -17,7 +17,8 @@ function Characters({data}) {
                                                     species={character.species}
                                                     status={character.status}
                                                     location={character.location.name}
-                                                    origin={character.origin.name}/>)}
+                                                    origin={character.origin.name}
+                                                    episodes={character.episode}/>)}
         </div>
     );
 

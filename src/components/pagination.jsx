@@ -5,6 +5,7 @@ function Pagination({current, max, onNext, onPrev}) {
     const prevButton = (current === 1) ?  <button disabled={true}>Prev</button> : <button onClick={onPrev}>Prev</button>
     const nextButton = (current >= max) ?  <button disabled={true}>Next</button> : <button onClick={onNext}>Next</button>
 
+    if (current === undefined) return <div>Why have you forsaken me?</div>
 
     return (
         <div>

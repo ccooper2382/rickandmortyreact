@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './App.module.css'
+import styles from '../App.module.css'
 
-function Title({image, name, status, species}) {
+function Title({image, name, status, species, type, gender}) {
     return (
         <div>
             <div>
@@ -10,6 +10,7 @@ function Title({image, name, status, species}) {
             <div>
                 <h2>{name}</h2>
                 <span>{status} - {species}</span>
+                <span>{type} - {gender}</span>
             </div>
         </div>
     );

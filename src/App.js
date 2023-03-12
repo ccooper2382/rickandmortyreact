@@ -1,8 +1,8 @@
 import './App.module.css';
 import {Fragment, useEffect, useState} from "react";
-import Characters from "./characters";
+import Characters from "./components/characters";
 import NextButton from "./nextButton";
-import Pagination from "./pagination";
+import Pagination from "./components/pagination";
 
 
 function App() {
