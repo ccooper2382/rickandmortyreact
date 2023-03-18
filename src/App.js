@@ -5,14 +5,17 @@ import NextButton from "./nextButton";
 import Pagination from "./components/pagination";
 
 
+
 function App() {
     const [characters, setCharacters] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
+    const [error, setError] = useState('')
 
     useEffect(() => {
         fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
             .then((response) => response.json())
             .then((data) => setCharacters(data))
+            .catch()
 
     }, [currentPage])
 
@@ -24,12 +27,10 @@ function App() {
         setCurrentPage(currentPage-1)
     }
 
-
     return (
-        <Fragment>
-        <Characters data={characters.results}/>
-       <Pagination max={characters.info.pages} current={currentPage} onNext={handleNext} onPrev={handlePrev}/>
-        </Fragment>
+        <div>
+            {characters.info===undefined ? <span></span> : <Characters data={characters} onNext={handleNext} onPrev={handlePrev} currentPage={currentPage}/>}
+        </div>
 
     );
 }

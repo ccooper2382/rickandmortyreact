@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import CharacterTile from "./characterTile";
 import styles from '../App.module.css'
+import Pagination from "./pagination";
 
-function Characters({data}) {
 
-    if (data === undefined) return <div>this is dumb</div>
+function Characters({data, onPrev, onNext, currentPage}) {
+
+
 
     return (
-
+        <Fragment>
         <div className={styles.flexContainer}>
-            {data.map((character) => <CharacterTile key={character.id}
+            {data.results.map((character) => <CharacterTile key={character.id}
                                                     name={character.name}
                                                     gender={character.gender}
                                                     image={character.image}
@@ -20,6 +22,8 @@ function Characters({data}) {
                                                     origin={character.origin.name}
                                                     episodes={character.episode}/>)}
         </div>
+    <Pagination max={data.info.pages} current={currentPage} onNext={onNext} onPrev={onPrev}/>
+        </Fragment>
     );
 
 }
