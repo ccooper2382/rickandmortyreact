@@ -1,10 +1,6 @@
 import './App.module.css';
 import {Fragment, useEffect, useState} from "react";
-import Characters from "./components/characters";
-import NextButton from "./nextButton";
-import Pagination from "./components/pagination";
-
-
+import Characters from "./components/characterList/characters";
 
 function App() {
     const [characters, setCharacters] = useState([])

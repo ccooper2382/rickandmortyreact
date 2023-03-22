@@ -2,19 +2,15 @@
   text-align: center;
 }
 
-.flexContainer {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1080px;
-  margin: 0 auto;
-}
+
 
 .flexItem {
-  width: 20%;
+  width: 100%;
   padding: 1rem;
 }
 
 .image {
   height: auto;
-  width: 100%
+  width: 10%
 }
+
