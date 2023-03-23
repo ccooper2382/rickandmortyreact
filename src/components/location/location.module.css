@@ -1,0 +1,7 @@
+.location__block {
+    display: flex;
+}
+
+.location__stats {
+    width: 50%;
+}

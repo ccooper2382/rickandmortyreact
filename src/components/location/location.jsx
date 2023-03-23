@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import styles from './location.module.css'
 
 function Location({location, origin}) {
 
@@ -9,16 +9,16 @@ function Location({location, origin}) {
         </div>
     }
     return (
-        <Fragment>
-        <div>
+        <div className={styles.location__block}>
+        <div className={styles.location__stats}>
             <h2>Last Known Location</h2>
             <span>{location}</span>
         </div>
-        <div>
+        <div className={styles.location__stats}>
             <h2>Origin</h2>
             <span>{origin}</span>
         </div>
-        </Fragment>
+        </div>
     );
 
 }

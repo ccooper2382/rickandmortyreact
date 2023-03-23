@@ -2,5 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     max-width: 1080px;
-    margin: 0 auto;
+    margin: 1em auto;
+    padding: 1em;
+    border: 2px solid black;
+    border-radius: 10px;
 }
