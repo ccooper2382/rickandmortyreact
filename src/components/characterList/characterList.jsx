@@ -1,16 +1,16 @@
 import React, {Fragment} from 'react';
 import CharacterTile from "../Tile/characterTile";
-import styles from '../../App.module.css'
+import styles from './characterList.module.css'
 import Pagination from "../pagination/pagination";
 
 
-function Characters({data, onPrev, onNext, currentPage}) {
+function CharacterList({data, onPrev, onNext, currentPage}) {
 
 
 
     return (
-        <Fragment>
-        <div className={styles.flexContainer}>
+
+        <div className={styles.characterMain}>
             {data.results.map((character) => <CharacterTile key={character.id}
                                                     name={character.name}
                                                     gender={character.gender}
@@ -21,11 +21,13 @@ function Characters({data, onPrev, onNext, currentPage}) {
                                                     location={character.location.name}
                                                     origin={character.origin.name}
                                                     episodes={character.episode}/>)}
+            <Pagination max={data.info.pages} current={currentPage} onNext={onNext} onPrev={onPrev}/>
+
         </div>
-    <Pagination max={data.info.pages} current={currentPage} onNext={onNext} onPrev={onPrev}/>
-        </Fragment>
+
+
     );
 
 }
 
-export default Characters;
+export default CharacterList;

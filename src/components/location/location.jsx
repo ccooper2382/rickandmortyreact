@@ -10,14 +10,15 @@ function Location({location, origin}) {
     }
     return (
         <div className={styles.location__block}>
-        <div className={styles.location__stats}>
+            <div className={styles.location__stats}>
+                <h2>Origin</h2>
+                <span>{origin}</span>
+            </div>
+            <div className={styles.location__stats}>
             <h2>Last Known Location</h2>
             <span>{location}</span>
         </div>
-        <div className={styles.location__stats}>
-            <h2>Origin</h2>
-            <span>{origin}</span>
-        </div>
+
         </div>
     );
 

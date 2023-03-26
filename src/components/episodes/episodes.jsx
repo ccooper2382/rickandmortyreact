@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import styles from './episodes.module.css'
 
 
 function Episodes({episodes}) {
@@ -19,7 +20,7 @@ function Episodes({episodes}) {
 
     return (
 
-        <div>
+        <div className={styles.episodes}>
             <h2>Episodes</h2>
             {episodesList.map((episode) => <span key={episode.id}>{episode.name}, </span> )}
         </div>

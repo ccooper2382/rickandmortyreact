@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './pagination.module.css'
 
 function Pagination({current, max, onNext, onPrev}) {
 
@@ -6,7 +7,7 @@ function Pagination({current, max, onNext, onPrev}) {
     const nextButton = (current >= max) ?  <button disabled={true}>Next</button> : <button onClick={onNext}>Next</button>
 
     return (
-        <div>
+        <div className={styles.pagination}>
             {prevButton}
             <span>1</span>
             <span>...</span>

@@ -1,6 +1,6 @@
 import './App.module.css';
 import {Fragment, useEffect, useState} from "react";
-import Characters from "./components/characterList/characters";
+import CharacterList from "./components/characterList/characterList";
 
 function App() {
     const [characters, setCharacters] = useState([])
@@ -25,7 +25,7 @@ function App() {
 
     return (
         <div>
-            {characters.info===undefined ? <span></span> : <Characters data={characters} onNext={handleNext} onPrev={handlePrev} currentPage={currentPage}/>}
+            {characters.info===undefined ? <span></span> : <CharacterList data={characters} onNext={handleNext} onPrev={handlePrev} currentPage={currentPage}/>}
         </div>
 
     );
