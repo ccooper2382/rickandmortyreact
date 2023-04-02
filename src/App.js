@@ -5,13 +5,13 @@ import CharacterList from "./components/characterList/characterList";
 function App() {
     const [characters, setCharacters] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [error, setError] = useState('')
+    //const [error, setError] = useState('')
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
+        fetch(`https://rickandmortyapi.com/api/character/?page=2000`)
             .then((response) => response.json())
             .then((data) => setCharacters(data))
-            .catch()
+            .catch(error => console.log(error))
 
     }, [currentPage])
 
