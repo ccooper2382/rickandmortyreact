@@ -5,7 +5,7 @@ function EpisodesList({episodesList}) {
     return (
         <div className={styles.episodes}>
         <h2>Episodes</h2>
-        {episodesList.map((episode) => <span key={episode.id}>, {episode.name}</span> )}
+        {episodesList.map((episode) => <span className={styles.episodeList} key={episode.id}>{episode.name}</span> )}
     </div>
     );
 }

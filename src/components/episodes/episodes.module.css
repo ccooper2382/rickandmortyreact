@@ -1,3 +1,7 @@
 .episodes {
     width: 100%;
 }
+
+.episodeList:not(:first-of-type)::before {
+    content: ", ";
+}

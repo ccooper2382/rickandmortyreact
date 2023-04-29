@@ -8,12 +8,22 @@ function App() {
     //const [error, setError] = useState('')
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/?page=2000`)
-            .then((response) => response.json())
-            .then((data) => setCharacters(data))
-            .catch(error => console.log(error))
+        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
+            .then(response => {
+                if (!response.ok) {
+                    console.log(response.status)
+                    throw new Error(`Network response was not ok. Response status: ${response.status}`);
 
-    }, [currentPage])
+                }
+                return response.json();
+            })
+            .then(data => {
+                setCharacters(data);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, [currentPage]);
 
     const handleNext = () => {
         setCurrentPage(currentPage+1)
