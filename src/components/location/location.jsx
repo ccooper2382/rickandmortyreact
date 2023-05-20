@@ -15,9 +15,9 @@ function Location({location, origin}) {
                 <span>{origin}</span>
             </div>
             <div className={styles.location__stats}>
-            <h2>Last Known Location</h2>
-            <span>{location}</span>
-        </div>
+                <h2>Last Known Location</h2>
+                <span>{location}</span>
+            </div>
 
         </div>
     );

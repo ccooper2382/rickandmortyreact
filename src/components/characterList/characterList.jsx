@@ -1,7 +1,7 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import CharacterTile from "../Tile/characterTile";
-import styles from './characterList.module.css'
 import Pagination from "../pagination/pagination";
+import styles from './characterList.module.css';
 
 
 function CharacterList({data, onPrev, onNext, currentPage}) {
