@@ -1,5 +1,5 @@
 .character__portrait {
-    width: 20%
+    flex: 20%
 }
 
 .character__Title {

@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './title.module.css'
-import Location from "../location/location";
 
-function Title({image, name, status, species, type, gender, location, origin}) {
+
+function Title({image, name, status, species, type, gender,}) {
     return (
         <div className={styles.character__Title}>
             <div className={styles.character__portrait}>
@@ -12,7 +12,6 @@ function Title({image, name, status, species, type, gender, location, origin}) {
                 <h2>{name}</h2>
                 <span>{status} - {species}</span>
                 <span>{type} - {gender}</span>
-                <Location location={location} origin={origin} />
             </div>
         </div>
     );
