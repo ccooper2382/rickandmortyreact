@@ -3,6 +3,10 @@
     margin: 0 1em;
 }
 
+.episodes h2 {
+    margin: .5em 0;
+}
+
 .episodeList:not(:first-of-type)::before {
     content: ", ";
 }

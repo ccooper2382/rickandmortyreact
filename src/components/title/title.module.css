@@ -5,12 +5,17 @@
 .character__Title {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+
+    flex: 100%;
 }
 
 .character__Stats {
-    width: 75%;
+    flex: 75%;
     margin: 0 1em;
+}
+
+.character__Stats h2 {
+    margin: 0;
 }
 
 .character__image {

@@ -3,7 +3,7 @@ import styles from './location.module.css'
 function Location({location, origin}) {
 
     if (location === origin) {
-        return <div>
+        return <div className={styles.location__stats}>
             <h2>Location/Origin</h2>
             <span>{location}</span>
         </div>

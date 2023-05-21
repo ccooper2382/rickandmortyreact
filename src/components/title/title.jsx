@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './title.module.css'
+import TitleStats from "./TitleStats";
 
 
 function Title({image, name, status, species, type, gender,}) {
@@ -8,11 +9,7 @@ function Title({image, name, status, species, type, gender,}) {
             <div className={styles.character__portrait}>
                 <img className={styles.character__image} src={image} alt={name}></img>
             </div>
-            <div className={styles.character__Stats}>
-                <h2>{name}</h2>
-                <span>{status} - {species}</span>
-                <span>{type} - {gender}</span>
-            </div>
+         <TitleStats name={name} species={species} status={status} type={type} gender={gender} />
         </div>
     );
 }
