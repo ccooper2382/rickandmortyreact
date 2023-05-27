@@ -12,6 +12,9 @@ function App() {
     }, []);
 
     const updateCharacters = (data) => {
+        //thats really all it took?  just make it an object instead of an array and it works great
+        // this is what I was doing setCharacters([...characters, data])  and it made the state undefined
+        // and threw an error App.js:31 Error fetching data: TypeError: characters is not iterable
         setCharacters({...characters, ...data})
     }
 
