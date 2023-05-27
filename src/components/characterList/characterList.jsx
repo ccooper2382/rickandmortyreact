@@ -21,7 +21,7 @@ function CharacterList({data, onPrev, onNext, currentPage}) {
                                                     location={character.location.name}
                                                     origin={character.origin.name}
                                                     episodes={character.episode}/>)}
-            <Pagination max={data.info.pages} current={currentPage} onNext={onNext} onPrev={onPrev}/>
+            {/*<Pagination max={data.info.pages} current={currentPage} onNext={onNext} onPrev={onPrev}/>*/}
 
         </div>
 

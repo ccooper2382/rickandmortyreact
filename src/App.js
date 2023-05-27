@@ -8,7 +8,15 @@ function App() {
     //const [error, setError] = useState('')
 
     useEffect(() => {
-        fetch(`https://rickandmortyapi.com/api/character/?page=${currentPage}`)
+        getData(currentPage)
+    }, []);
+
+    const updateCharacters = (data) => {
+        setCharacters([...characters, data])
+    }
+
+    const getData = (page) => {
+        fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
             .then(response => {
                 if (!response.ok) {
                     console.log(response.status)
@@ -18,24 +26,17 @@ function App() {
                 return response.json();
             })
             .then(data => {
-                setCharacters(data);
+                updateCharacters(data);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
             });
-    }, [currentPage]);
-
-    const handleNext = () => {
-        setCurrentPage(currentPage+1)
     }
 
-    const handlePrev = () => {
-        setCurrentPage(currentPage-1)
-    }
 
     return (
         <div>
-            {characters.info===undefined ? <span></span> : <CharacterList data={characters} onNext={handleNext} onPrev={handlePrev} currentPage={currentPage}/>}
+            {characters.info===undefined ? <span>fail</span> : <CharacterList data={characters} />}
         </div>
 
     );
