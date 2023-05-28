@@ -4,7 +4,7 @@ import Pagination from "../pagination/pagination";
 import styles from './characterList.module.css';
 
 
-function CharacterList({data, onPrev, onNext, currentPage}) {
+function CharacterList({data}) {
 
 
 
