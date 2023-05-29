@@ -8,20 +8,14 @@ function App() {
     //const [error, setError] = useState('')
 
     useEffect(() => {
-        getData(currentPage).then(r => )
+        getData(currentPage)
     }, []);
 
     const updateCharacters = (data) => {
-        //thats really all it took?  just make it an object instead of an array and it works great
-        // this is what I was doing setCharacters([...characters, data])  and it made the state undefined
-        // and threw an error App.js:31 Error fetching data: TypeError: characters is not iterable
-        // two bloody hours spent on this
-        setCharacters({...characters, ...data})
-        updatePage(characters.info.pages)
-        console.log(currentPage)
+        setCharacters(data)
     }
 
-    const getData = async (page) => {
+    const getData = (page) => {
         fetch(`https://rickandmortyapi.com/api/character/?page=${page}`)
             .then(response => {
                 if (!response.ok) {
@@ -41,9 +35,13 @@ function App() {
 
 
     return (
-        <div>
-            {characters.info===undefined ? <span>fail</span> : <CharacterList data={characters} />}
-        </div>
+        <Fragment>
+            {characters.length === 0 ? (
+                <span>Loading...</span>
+            ) : (
+                <CharacterList data={characters} />
+            )}
+        </Fragment>
 
     );
 }
