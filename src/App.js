@@ -12,7 +12,7 @@ function App() {
     }, []);
 
     const updateCharacters = (data) => {
-        setCharacters(data)
+        setCharacters((prevCharacters) => [...prevCharacters, data]);
     }
 
     const getData = (page) => {
