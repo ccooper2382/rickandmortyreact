@@ -12,7 +12,12 @@ function App() {
     }, []);
 
     const updateCharacters = (data) => {
-        setCharacters((prevCharacters) => [...prevCharacters, data]);
+        if (characters.length === 0) {
+            setCharacters(data)
+        } else {
+            setCharacters((prevCharacters) => [...prevCharacters, ...data]);
+        }
+
     }
 
     const getData = (page) => {
@@ -26,7 +31,7 @@ function App() {
                 return response.json();
             })
             .then(data => {
-                updateCharacters(data);
+                updateCharacters(data.results);
             })
             .catch(error => {
                 console.error('Error fetching data:', error);
