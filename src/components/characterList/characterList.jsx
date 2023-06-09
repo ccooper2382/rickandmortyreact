@@ -4,12 +4,13 @@ import Pagination from "../pagination/pagination";
 import styles from './characterList.module.css';
 
 
-function CharacterList({data}) {
+function CharacterList({data}, {info}) {
 
 
     return (
 
         <div className={styles.characterMain}>
+
             {data.map((character) =>
                 <CharacterTile key={character.id}
                                name={character.name}
@@ -20,7 +21,8 @@ function CharacterList({data}) {
                                status={character.status}
                                location={character.location.name}
                                origin={character.origin.name}
-                               episodes={character.episode}/>)}
+                               episodes={character.episode}
+                info={info}/>)}
             {/*<Pagination max={data.info.pages} current={currentPage} onNext={onNext} onPrev={onPrev}/>*/}
 
         </div>
