@@ -1,16 +1,12 @@
 import React from 'react';
 import CharacterTile from "../Tile/characterTile";
-import Pagination from "../pagination/pagination";
 import styles from './characterList.module.css';
 
 
-function CharacterList({data}, {info}) {
-
+function CharacterList({data}) {
 
     return (
-
         <div className={styles.characterMain}>
-
             {data.map((character) =>
                 <CharacterTile key={character.id}
                                name={character.name}
@@ -21,13 +17,8 @@ function CharacterList({data}, {info}) {
                                status={character.status}
                                location={character.location.name}
                                origin={character.origin.name}
-                               episodes={character.episode}
-                info={info}/>)}
-            {/*<Pagination max={data.info.pages} current={currentPage} onNext={onNext} onPrev={onPrev}/>*/}
-
+                               episodes={character.episode}/>)}
         </div>
-
-
     );
 
 }

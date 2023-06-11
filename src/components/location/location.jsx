@@ -18,10 +18,8 @@ function Location({location, origin}) {
                 <h2>Last Known Location</h2>
                 <span>{location}</span>
             </div>
-
         </div>
     );
-
 }
 
 export default Location;

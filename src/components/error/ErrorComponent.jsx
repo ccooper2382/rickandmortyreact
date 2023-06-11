@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Error({error}) {
+function ErrorComponent({error}) {
     return (
         <div>An Error has occurred: {error}</div>
     );
 }
 
-export default Error;
+export default ErrorComponent;

@@ -1,11 +1,13 @@
 import './App.module.css';
 import {Fragment, useEffect, useState} from "react";
 import CharacterList from "./components/characterList/characterList";
+import ErrorComponent from "./components/error/ErrorComponent";
 
 function App() {
     const [characters, setCharacters] = useState([])
     const [info, setInfo] = useState({})
     const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState('')
 
 
     const initialURL = "https://rickandmortyapi.com/api/character/"
@@ -47,9 +49,7 @@ function App() {
         fetch(url)
             .then(response => {
                 if (!response.ok) {
-                    console.log(response.status)
                     throw new Error(`Network response was not ok. Response status: ${response.status}`);
-
                 }
                 return response.json();
             })
@@ -58,20 +58,26 @@ function App() {
                 updateInfo(data.info)
             })
             .catch(error => {
-                console.error('Error fetching data:', error);
+                setError(`Error fetching data: ${error}`);
             });
         setIsLoading(false)
     }
 
-
-    return (
-        <Fragment>
+    if (error === '') {
+        return <Fragment>
             {characters.length === 0 ? (
                 <span>Loading...</span>
             ) : (
                 <CharacterList data={characters} info={info}/>
             )}
         </Fragment>
+    } else {
+        return <ErrorComponent error={error}/>
+    }
+
+
+    return (
+        <div>If you see this something has gone very wrong</div>
 
     );
 }
