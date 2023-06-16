@@ -6,7 +6,7 @@ import styles from './characterList.module.css';
 function CharacterList({data}) {
 
     return (
-        <div className={styles.characterMain}>
+        <main className={styles.characterMain}>
             {data.map((character) =>
                 <CharacterTile key={character.id}
                                name={character.name}
@@ -18,7 +18,7 @@ function CharacterList({data}) {
                                location={character.location.name}
                                origin={character.origin.name}
                                episodes={character.episode}/>)}
-        </div>
+        </main>
     );
 
 }
