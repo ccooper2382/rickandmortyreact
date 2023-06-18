@@ -1,5 +1,5 @@
 import React from 'react';
-import CharacterTile from "../Tile/characterTile";
+import CharacterTile from "../Tile/CharacterTile";
 import styles from './characterList.module.css';
 
 

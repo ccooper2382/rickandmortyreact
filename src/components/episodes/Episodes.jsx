@@ -1,5 +1,5 @@
 import React, {Fragment, useEffect, useState} from 'react';
-import EpisodesList from "./episodesList";
+import EpisodesList from "./EpisodesList";
 import ErrorComponent from "../error/ErrorComponent";
 
 
@@ -7,7 +7,9 @@ function Episodes({episodes}) {
     const [episodesList, setEpisodesList] = useState([])
     const [error, setError] = useState('')
 
-//updates the state with the episode names for this specific character
+    /**
+     * updates the state with the episode names for this specific character
+     */
     useEffect(() => {
         let episodeNumList = []
         for (let i = 0; i < episodes.length; i++) {
@@ -28,7 +30,7 @@ function Episodes({episodes}) {
                 setError(`Failed to fetch: ${error}`)
             });
 
-    });
+    }, [episodes]);
 
 
     return (

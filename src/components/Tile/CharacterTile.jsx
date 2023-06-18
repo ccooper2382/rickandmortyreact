@@ -1,7 +1,7 @@
 import React from 'react';
-import Title from "../title/title";
-import Episodes from "../episodes/episodes";
-import Location from "../location/location";
+import Title from "../title/Title";
+import Episodes from "../episodes/Episodes";
+import Location from "../location/Location";
 import styles from './tile.module.css';
 
 function CharacterTile({name, status, species, type, gender, image, location, origin, episodes}) {
