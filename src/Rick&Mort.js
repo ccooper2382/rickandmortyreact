@@ -17,8 +17,32 @@ function RickMort() {
     const initialURL = "https://rickandmortyapi.com/api/character/"
 
     /**
+     * Loads data from the server into the state
+     * @param url
+     */
+    const getData = (url) => {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok. Response status: ${response.status}`)
+                }
+                return response.json()
+            })
+            .then(data => {
+                updateCharacters(data.results)
+                updateInfo(data.info)
+            })
+            .catch(error => {
+                setError(`Error fetching data: ${error}`)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    }
+
+    /**
      * Initiates the first server call to populate characters and info and loads event handlers
-      */
+     */
     useEffect(() => {
         getData(initialURL)
         window.addEventListener('scroll', handleScroll)
@@ -34,8 +58,7 @@ function RickMort() {
         if (info.next !== null) {
             getData(info.next)
         }
-console.log('rawr')
-    }, [isLoading]) //this error is also misleading
+    }, [isLoading]) //this error is also misleading Or I need to learn more about dependency arrays
 
     /**
      * event handler for infinite scroll
@@ -63,7 +86,10 @@ console.log('rawr')
         if (characters.length === 0) {
             setCharacters(data)
         } else {
-            setCharacters((prevCharacters) => [...prevCharacters, ...data]);
+            setCharacters((characters.concat(data)));
+            //decided to use concat instead of spread operator
+            //spread will iterate over the entire array while concat wil just add one array to the end of the first
+            //should lead to better performance.  probably not a big deal on this project but could be useful for larger projects
         }
     }
     /**
@@ -72,30 +98,6 @@ console.log('rawr')
      */
     const updateInfo = (info) => {
         setInfo(info)
-    }
-
-    /**
-     * Loads data from the server
-     * @param url
-     */
-    const getData = (url) => {
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok. Response status: ${response.status}`)
-                }
-                return response.json()
-            })
-            .then(data => {
-                updateCharacters(data.results)
-                updateInfo(data.info)
-            })
-            .catch(error => {
-                setError(`Error fetching data: ${error}`)
-            })
-            .finally(() => {
-            setIsLoading(false)
-        })
     }
 
 
@@ -107,13 +109,10 @@ console.log('rawr')
                 <CharacterList data={characters} info={info}/>
             )}
         </Fragment>
-    } else {
-        return <ErrorComponent error={error}/>
     }
 
-
     return (
-        <div>If you see this something has gone very wrong</div>
+        <ErrorComponent error={error}/>
 
     );
 }
